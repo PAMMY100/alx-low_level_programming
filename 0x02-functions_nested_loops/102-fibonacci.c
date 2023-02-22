@@ -1,22 +1,32 @@
-
-#include <stdio.h>
+#include"main.h"
 
 /**
- * main - Prints natural numbers below 1024 that are
- * multiplies of 3 or 5
+ * main - Entry point
  *
- * Return: Always 0.
- */
+ * Description: prints the first 50 Fibonacci numbers
+ *		starting with 1 and 2 folled by a new line
+ *
+ * Return: Always 0 (Success)
+*/
+
 int main(void)
 {
-	int a, b;
+	int count;
+	unsigned long fib1 = 0, fib2 = 1, sum;
 
-	for (a = 1; a < 1024; a++)
+	for (count = 0; count < 50; ++count)
 	{
-		if ((a % 3) == 0 || (a % 5) == 0)
-			b += a;
+		sum = fib1 + fib2;
+		printf("%lu", sum);
+
+		fib1 = fib2;
+		fib2 = sum;
+
+		if (count == 49)
+			printf("\n");
+		else
+			printf(", ");
 	}
-	printf("%d\n", b);
+
 	return (0);
 }
-
